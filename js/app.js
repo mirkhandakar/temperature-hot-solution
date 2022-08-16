@@ -13,8 +13,14 @@ const setInnterText = (id, text) => {
 }
 
 const displayTemperature = temperature => {
+    console.log(temperature);
     setInnterText('city', temperature.name);
     setInnterText('temperature', temperature.main.temp);
     setInnterText('condition', temperature.weather[0].main);
-    console.log(temperature);
+
+
+    //set weather icon
+    const url = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`;
+    const imgIcon = document.getElementById('weather-icon');
+    imgIcon.setAttribute('src', url);
 }
